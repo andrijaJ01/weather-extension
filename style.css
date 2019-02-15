@@ -2,6 +2,8 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Staatliches', cursive;
+  font-size: 40px
 }
 body{
   height: 100vh;
@@ -9,7 +11,7 @@ body{
   justify-content: center;
   flex-direction: column;
 align-items: center;
-background: linear-gradient(85deg, #4ca1af   ,#c4e0e5 );
+background: linear-gradient(65deg, #4ca1af   ,#c4e0e5 );
 font-family: monospace;
 color: black;
 }
@@ -22,16 +24,19 @@ color: black;
 }
 .temperature{
   flex-direction:column;
+  border-top : solid 3px black;
+  border-bottom: solid 3px black;
+  }
 
-}
 .degree-section{
   display: flex;
   align-items: center;
 cursor: pointer;
+
 }
 .degree-section span{
-  margin:10px;
-  font-size:25px;
+  margin:15px;
+  font-size:40px;
 }
 .degree-section h2{
   font-size: 35px;
@@ -42,3 +47,4 @@ cursor: pointer;
 .temperature{
   pointer:cursor;
 }
+
