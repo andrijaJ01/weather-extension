@@ -6,6 +6,8 @@ window.addEventListener('load' , () => {
   let locationTimezone= document.querySelector('.location-timezone');
  let temperatureSection= document.querySelector('.temperature');
  let temperatureSpan = document.querySelector(".temperature span");
+ let  toggle = document.querySelectorAll(".toggle")[0];
+let  nav = document.querySelectorAll("nav")[0];
 
   if(navigator.geolocation){
   navigator.geolocation.getCurrentPosition(position =>{
@@ -29,7 +31,7 @@ window.addEventListener('load' , () => {
               temperatureSection.addEventListener('click',()=>{
                 if (temperatureSpan.textContent==='F'){
                   temperatureSpan.textContent='C';
-                  temperatureDegree.innerHTML=Math.floor(celsius);
+                  temperatureDegree.innerHTML=celsius.toFixed(2);
                 }else{
                   temperatureSpan.textContent='F';
                   temperatureDegree.innerHTML=temperature;
@@ -46,4 +48,16 @@ const skycons = new Skycons();
   skycons.play();
   return skycons.set(iconID, Skycons[currentIcon]);
 }
+toggle_open_text = 'Find me on';
+toggle_close_text = 'Close';
+
+toggle.addEventListener('click', ()=> {
+	nav.classList.toggle('open');
+
+  if (nav.classList.contains('open')) {
+    toggle.innerHTML = toggle_close_text;
+  } else {
+    toggle.innerHTML = toggle_open_text;
+  }
+}, false);
 });
