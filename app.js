@@ -4,10 +4,12 @@ window.addEventListener('load' , () => {
   let temperatureDescription= document.querySelector('.temperature-description');
   let temperatureDegree= document.querySelector('.temperature-degree');
   let locationTimezone= document.querySelector('.location-timezone');
- let temperatureSection= document.querySelector('.temperature');
- let temperatureSpan = document.querySelector(".temperature span");
- let  toggle = document.querySelectorAll(".toggle")[0];
-let  nav = document.querySelectorAll("nav")[0];
+  let temperatureSection= document.querySelector('.temperature');
+  let temperatureSpan = document.querySelector(".temperature span");
+  let  toggle = document.querySelectorAll(".toggle")[0];
+  let  nav = document.querySelectorAll("nav")[0];
+  let toggle_open_text = 'Find me on';
+  let toggle_close_text = 'Close';
 
   if(navigator.geolocation){
   navigator.geolocation.getCurrentPosition(position =>{
@@ -23,11 +25,8 @@ let  nav = document.querySelectorAll("nav")[0];
               temperatureDegree.innerHTML=temperature;
               temperatureDescription.innerHTML=summary;
               locationTimezone.innerHTML= data.timezone;
-              //formula for celsius
               let celsius= (temperature-32)*(5/9);
-              //icons for weather
               setIcons(icon, document.querySelector('.icon'));
-              //change to celsius/farentheit on click
               temperatureSection.addEventListener('click',()=>{
                 if (temperatureSpan.textContent==='F'){
                   temperatureSpan.textContent='C';
@@ -48,8 +47,6 @@ const skycons = new Skycons();
   skycons.play();
   return skycons.set(iconID, Skycons[currentIcon]);
 }
-toggle_open_text = 'Find me on';
-toggle_close_text = 'Close';
 
 toggle.addEventListener('click', ()=> {
 	nav.classList.toggle('open');
